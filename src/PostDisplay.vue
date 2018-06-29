@@ -9,6 +9,7 @@
     <div data-test-user>
       ユーザー：{{ user }}
     </div>
+    <br>
     <div class="post-body">
       {{ postSummary }}
     </div>
