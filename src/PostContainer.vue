@@ -2,6 +2,7 @@
   <div>
     <PostForm @submit="submit"/>
     <PostDisplay 
+      v-if="post.title"
       :title="post.title"
       :body="post.body"
       :likesCount="post.likes_count"

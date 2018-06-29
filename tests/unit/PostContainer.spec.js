@@ -27,10 +27,21 @@ describe("PostContainer", () => {
     const wrapper = shallowMount(PostContainer, {
       stubs: {
         PostDisplay: true
+      },
+      data() {
+        return {
+          post: { title: "タイトル" }
+        }
       }
     })
 
     expect(wrapper.find({ name: "PostDisplay" }).exists()).toBe(true)
+  })
+
+  it("postがない場合PostFormをおレンダーしない", () => {
+    const wrapper = shallowMount(PostContainer)
+
+    expect(wrapper.find({ name: "PostDisplay" }).exists()).toBe(false)
   })
 
   it("正しいIDでAPIを叩く", async () => {
