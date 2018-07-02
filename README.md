@@ -4,9 +4,9 @@
 
 エンジニアは、作るものを正しく行動するためにテストします。例：
 
-- 車を製造するエンジニアは安全のためにブレークをテストします
+- 車を製造するエンジニアは安全のためにブレーキをテストします
 - 充電をデザインエンジニアはシミュレーションで爆発するかテストします
-- プログラムを書く人は・・・とりあえず使ってみてどうなるかみてみよう？？
+- プログラムを書く人は・・・とりあえず使ってみてどうなるかみてみようかな？
 
 「使ってみる」はいいテストする方法ではないです。コントロールできる環境で確認した方が安全です。
 
@@ -38,13 +38,13 @@ vue create qiita_component
 - `id`でapiを叩く
 - レスポンスを表示する
 
-そのみつの条件をそれそれのコンポーネントに分けます。
+この３つの条件をそれぞれのコンポーネントに分けます。
 
 - `id`を受け取る -> `PostForm.vue`
 - api叩く -> `PostContainer.vue`
 - レスポンスを表示する -> `PostDisplay.vue`
 
-さらに、コンポーネントの責任を考えてみましょう。
+さらに、コンポーネントの役割を考えてみましょう。
 
 - `PostForm.vue`
   - ユーザーの入力を受け取る
@@ -151,7 +151,7 @@ touch src/PostForm.vue
 - ユーザーの入力を[`setValue`](https://vue-test-utils.vuejs.org/api/wrapper/#setvalue-value)でシミュレーションできます
 - `input`で入力を受け取る（当たり前）
 
-その２つのことを考えながらテストを描いてみましょう。
+その２つのことを考えながらテストを書いてみましょう。
 
 ```js
 import { shallowMount } from "@vue/test-utils"
@@ -373,7 +373,7 @@ fetch("https://qiita.com/api/v2/items/229a4f15b99a19f94b76")
 //=> ["rendered_body", "body", "coediting", "comments_count", "created_at", "group", "id", "likes_count", "private", "reactions_count", "tags", "title", "updated_at", "url", "user", "page_views_count"]
 ```
 
-プレプティが１６個があります。表示したいものは
+プレパティが１６個あります。表示したいものは
 
 - `likes_count`
 - `title`
@@ -657,7 +657,7 @@ expect(received).toBe(expected) // Object.is equality
   Received: "これは投稿です。テスト駆動開発。楽しいです。"
 ```
 
-投稿の`body`を全部表示したくないです。将来に、このコンポーネントをQiitaのトレンドのようにフィードに使いたいので、ただ最初の２つの文章を表示したいです。この処理をするために、`computed`プロポティを使えます。
+投稿の`body`を全部表示したくないです。将来に、このコンポーネントをQiitaのトレンドのようにフィードに使いたいので、ただ最初の２つの文章を表示したいです。この処理をするために、`computed`プロパティを使えます。
 
 ```js
 // ...
